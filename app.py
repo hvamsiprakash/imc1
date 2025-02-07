@@ -112,7 +112,8 @@ def load_model():
     decoder = TransformerDecoderBlock(embed_dim=EMBED_DIM, ff_dim=FF_DIM, num_heads=NUM_HEADS, vocab_size=VOCAB_SIZE)
     
     caption_model = ImageCaptioningModel(cnn_model=cnn_model, encoder=encoder, decoder=decoder)
-    caption_model.load_weights("IMC/weights.h5")
+    # caption_model.load_weights("IMC/weights.h5")
+    caption_model = tf.keras.models.load_model("IMC/weights.h5")
     return caption_model
 
 # Read and preprocess the image
